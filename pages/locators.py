@@ -21,3 +21,4 @@ class ProductPageLocators():
     PRODUCT_NAME = (By.CSS_SELECTOR, '.col-sm-6.product_main h1')
     PRODUCT_PRICE = (By.CSS_SELECTOR, '.product_main .price_color')
     PRODUCT_BASKET_TOTAL_PRICE = (By.CSS_SELECTOR, '.alert-info .alertinner strong')
+    PRODUCT_BASKET_SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alertinner strong')
