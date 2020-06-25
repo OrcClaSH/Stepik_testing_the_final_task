@@ -20,7 +20,8 @@ class ProductPage(BasePage):
 
     def should_be_product_price(self) -> None:
         assert self.is_element_present(
-            *ProductPageLocators.PRODUCT_PRICE), 'Price of product not presended'
+            *ProductPageLocators.PRODUCT_PRICE), \
+                'Price of product not presended'
         self.product_price = self.browser.find_element(
             *ProductPageLocators.PRODUCT_PRICE).text
 
@@ -42,7 +43,8 @@ class ProductPage(BasePage):
         product_price_total_basket = self.browser.find_element(
             *ProductPageLocators.PRODUCT_BASKET_TOTAL_PRICE).text
         assert product_price_total_basket == self.product_price, \
-            'The price of the product does not match the total cost of the basket'
+            'The price of the product does not match \
+                the total cost of the basket'
 
     def should_be_success_message(self) -> None:
         success_message_lst = self.browser.find_elements(

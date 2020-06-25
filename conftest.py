@@ -3,9 +3,6 @@ from selenium import webdriver
 import pytest
 
 
-# def pytest_configure(config):
-#     config.addinivalue_line('markers', 'need_review: marker for review' )
-
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_name',
@@ -19,7 +16,6 @@ def pytest_addoption(parser):
         default='en',
         help='Choose language: ru, en ...'
         )
-
 
 @pytest.fixture(scope='function')
 def browser(request):
