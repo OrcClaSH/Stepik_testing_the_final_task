@@ -3,6 +3,9 @@ from selenium import webdriver
 import pytest
 
 
+# def pytest_configure(config):
+#     config.addinivalue_line('markers', 'need_review: marker for review' )
+
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_name',
@@ -16,26 +19,12 @@ def pytest_addoption(parser):
         default='en',
         help='Choose language: ru, en ...'
         )
-    # parser.addoption(
-    #     '--product_name',
-    #     action='store',
-    #     default=None,
-    #     help='Input product_name'
-    #     )
-    # parser.addoption(
-    #     '--droduct_price',
-    #     action='store',
-    #     default=None,
-    #     help='Input product price'
-    #     )
 
 
 @pytest.fixture(scope='function')
 def browser(request):
     browser_name = request.config.getoption('browser_name')
     user_language = request.config.getoption('language')
-    # product_name = request.config.getoption('product_name')
-    # product_price = request.config.getoption('product_price')
     browser = None
     if browser_name == 'chrome':
         options = Options()

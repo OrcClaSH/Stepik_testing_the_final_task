@@ -3,9 +3,6 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    # product_name = ''
-    # product_price = ''
-
     def should_be_product_page(self) -> None:
         self.should_be_product_name()
         self.should_be_product_price()
@@ -14,7 +11,6 @@ class ProductPage(BasePage):
         self.should_be_product_name_in_basket()
         self.should_be_product_price_in_basket()
         self.should_be_success_message()
-        # self.should_not_be_success_message()
 
     def should_be_product_name(self) -> None:
         assert self.is_element_present(
@@ -52,18 +48,18 @@ class ProductPage(BasePage):
         success_message_lst = self.browser.find_elements(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE)
         assert len(success_message_lst) == 3, 'Success message not presended'
-    # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+    # Verify that there is no success message using is_not_element_present
     def should_be_cant_see_success_message_after_adding_product_to_basket(self) -> None:
         assert self.is_not_element_present(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE), \
                 'Success message is presented, but should not be'
-    # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
-    # без добавления товара в корзину
+    # Check that there is no success message using is_not_element_present 
+    # without adding the item to the basket
     def should_be_cant_see_success_message(self) -> None:
         assert self.is_not_element_present(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE), \
                 'Success message is presended, guest cant see success_message'
-    # Проверяем, что нет сообщения об успехе с помощью is_disappeared
+    # Verify that there is no success message using is_disappeared
     def should_be_message_disappeared_after_adding_product_to_basket(self) -> None:
         assert self.is_disappeared(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE), \

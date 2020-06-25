@@ -1,4 +1,3 @@
-# Добавил импорт для аргумента браузера
 from selenium.webdriver import Remote as RemoteWebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
@@ -6,13 +5,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from .locators import BasePageLocators
-
 import math
 
 
 class BasePage():
-    # Проставил класс для агрумента браузера, в IDE 
-    # будут всплывать подсказки методов
+    # I set the class for the browser argument, 
+    # method tips will pop up in the IDE
     def __init__(self, browser: RemoteWebDriver, url, timeout=10):
         self.browser = browser
         self.url = url
@@ -27,7 +25,7 @@ class BasePage():
         except NoSuchElementException:
             return False
         return True
-    # Метод для получения проверочного кода
+    # Method for obtaining verification code
     def solve_quiz_and_get_code(self) -> None:
         alert = self.browser.switch_to.alert
         x = alert.text.split(' ')[2]
@@ -41,10 +39,12 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print('No second alert presended')
-    # Элемент не появляется на странице в течение заданного времени
+    # The element does not appear on the page for the specified time.
     def is_not_element_present(self, how, what, timeout=4) -> bool:
         try:
-            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
+            WebDriverWait(self.browser, timeout).until(
+                EC.presence_of_element_located((how, what))
+                )
         except TimeoutException:
             return True
         return False
@@ -68,3 +68,7 @@ class BasePage():
     def go_to_basket(self) -> None:
         basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         basket_link.click()
+    # 4.3.13 the task
+    def should_be_authorized_user(self) -> None:
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+            'User icon is not presented, probably unauthorised user'
