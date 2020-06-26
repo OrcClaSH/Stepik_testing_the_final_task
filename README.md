@@ -16,7 +16,7 @@ cd \path\to\new_virtual_env\Scripts
 pip install -r \path\to\requirements.txt
 7. Убедитесь, что путь к chromedriver.exe прописан в PATH, либо скопируйте этот файл в текущую папку Scripts из шага 4.
 8. Запустите тесты командой:
-pytest -v --tb=line --language=en -m need_review \path\to\test_product_page.py
+pytest -v --tb=line --language=en -m need_review
 9. Проверьте, что все тесты прошли успешно.
 10. Если же тесты не запускаются, не спешите ставить 0 баллов и с чувством выполненного долга переходить к следующей рецензии.
 Попробуйте сначала разобраться, в чем заключается ошибка. Возможно, дело в путях к файлам в импорте -- тогда попробуйте поставить / убрать точку в начале и / или добавить / удалить пустой файл __init__.py в корневой папке и / или подпапках.
@@ -39,7 +39,7 @@ cd \ path \ to \ new_virtual_env \ Scripts
 pip install -r \ path \ to \ requirements.txt
 7. Make sure that the path to chromedriver.exe is specified in PATH, or copy this file to the current Scripts folder from step 4.
 8. Run the tests with the command:
-pytest -v --tb = line --language = en -m need_review \ path \ to \ test_product_page.py
+pytest -v --tb = line --language = en -m need_review
 9. Verify that all tests are successful.
 10. If the tests do not start, do not rush to put 0 points and move on to the next review with a sense of accomplishment.
 Try to figure out what the error is first. Perhaps the matter is in the paths to the files in the import - then try to put / remove the dot at the beginning and / or add / delete the empty __init__.py file in the root folder and / or subfolders.

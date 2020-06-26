@@ -50,17 +50,20 @@ class ProductPage(BasePage):
         success_message_lst = self.browser.find_elements(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE)
         assert len(success_message_lst) == 3, 'Success message not presended'
+
     # Verify that there is no success message using is_not_element_present
     def should_be_cant_see_success_message_after_adding_product_to_basket(self) -> None:
         assert self.is_not_element_present(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE), \
                 'Success message is presented, but should not be'
-    # Check that there is no success message using is_not_element_present 
+
+    # Check that there is no success message using is_not_element_present
     # without adding the item to the basket
     def should_be_cant_see_success_message(self) -> None:
         assert self.is_not_element_present(
             *ProductPageLocators.PRODUCT_BASKET_SUCCESS_MESSAGE), \
                 'Success message is presended, guest cant see success_message'
+
     # Verify that there is no success message using is_disappeared
     def should_be_message_disappeared_after_adding_product_to_basket(self) -> None:
         assert self.is_disappeared(

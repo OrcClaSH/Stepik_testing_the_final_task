@@ -39,7 +39,7 @@ class LoginPage(BasePage):
         assert self.is_element_present(
             *LoginPageLocators.REGISTER_FROM_BUTTON_SUBMIT
             ), 'Register form button submit is not presended'
-    # 4.3.13 the task
+
     def register_new_user(self, email, password):
         register_email = self.browser.find_element(
             *LoginPageLocators.REGISTER_FORM_EMAIL

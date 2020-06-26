@@ -9,7 +9,7 @@ import math
 
 
 class BasePage():
-    # I set the class for the browser argument, 
+    # I set the class for the browser argument,
     # method tips will pop up in the IDE
     def __init__(self, browser: RemoteWebDriver, url, timeout=10):
         self.browser = browser
@@ -25,6 +25,7 @@ class BasePage():
         except NoSuchElementException:
             return False
         return True
+
     # Method for obtaining verification code
     def solve_quiz_and_get_code(self) -> None:
         alert = self.browser.switch_to.alert
@@ -39,6 +40,7 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print('No second alert presended')
+
     # The element does not appear on the page for the specified time.
     def is_not_element_present(self, how, what, timeout=4) -> bool:
         try:
@@ -68,7 +70,7 @@ class BasePage():
     def go_to_basket(self) -> None:
         basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         basket_link.click()
-    # 4.3.13 the task
+
     def should_be_authorized_user(self) -> None:
         assert self.is_element_present(*BasePageLocators.USER_ICON), \
             'User icon is not presented, probably unauthorised user'
