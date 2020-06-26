@@ -3,6 +3,7 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
+
     def should_be_product_page(self) -> None:
         self.should_be_product_name()
         self.should_be_product_price()

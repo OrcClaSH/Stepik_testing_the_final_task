@@ -9,6 +9,7 @@ import math
 
 
 class BasePage():
+
     # I set the class for the browser argument,
     # method tips will pop up in the IDE
     def __init__(self, browser: RemoteWebDriver, url, timeout=10):
